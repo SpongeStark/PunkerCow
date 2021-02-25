@@ -11,4 +11,4 @@ This is a tutorial project for "**La vache est dans le pré**"
 - C++
 
 ## Description
-There are three folders, one for a console project, one for a Qt GUI project, and the Docs, for the explanation documents, or some documentations.
+There are two folders, one for a [console project](), one for a [Qt GUI project](GUI-project), and the Docs, for the explanation documents, or some documentations.
