@@ -1,7 +1,7 @@
 # Qt GUI Project
 
 ## configure
-Dowmload the libaray Qt: <https://download.qt.io/official_releases/qt/5.12/5.12.10/>
+Dowmload the libaray Qt: <https://download.qt.io/official_releases/qt/5.12/5.12.10/>  
 (It requres an account during installing. If you don't want to create one, you can disconnect the Internet to skip the registration before executing the install package)
 
 ### -- For Linux / Max OS
