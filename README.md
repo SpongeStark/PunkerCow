@@ -1,6 +1,8 @@
 # PunkerCow
 
-This is a tutorial project for "**La vache est dans le pré**"
+This is a tutorial project for "**La vache est dans le pré**"  
+
+## 命名规范，见[Naming notations](命名规范.md)
 
 ## Menbers
 - Kai YANG
