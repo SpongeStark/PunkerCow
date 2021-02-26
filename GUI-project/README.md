@@ -8,7 +8,7 @@ Dowmload the libaray Qt: <https://download.qt.io/official_releases/qt/5.12/5.12.
 1. Find the path of the executable file *qmake*
 2. Move to the project directory  
   `cd ...`
-2. if *.pro file does noy exist:   
+2. if *.pro file does not exist:   
   - `<path>/qmake -project` to create the project file.  
   - Add the *lib*s to the project file, such as `QT += network Core`, `QT -= gui`, etc.  
   ref : <https://doc.qt.io/qt-5/qmake-manual.html>  
