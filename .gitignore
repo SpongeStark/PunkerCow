@@ -1,4 +1,5 @@
 .DS_store
+.vscode
 
 # Files in CLI project
 CLI-project/src/a
