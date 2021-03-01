@@ -1,4 +1,8 @@
 .DS_store
 
+# Files in CLI project
 CLI-project/src/a
 CLI-project/src/run
+
+# Files in GUI project
+GUI-project/src/*.user
