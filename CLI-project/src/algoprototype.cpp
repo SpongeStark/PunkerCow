@@ -1,3 +1,4 @@
+//这部分是算法原型，单独能编译运行，仅供差错时参考，与程序无关
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
