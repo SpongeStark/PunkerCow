@@ -16,12 +16,16 @@ class FloatPolygon
     private:
         vector<FloatPoint> polygon;
     public:
+        FloatPolygon();
+
         double getArea();
         FloatPoint getCentroid();
-        bool isInPolycon();
-        void addPoint();
-        void removePoint();
-        void setBorder(double&,double&,double&,double&);
+        bool isInPolycon(FloatPoint g);
+
+        bool addPoint(FloatPoint point);
+        bool removeLastPoint();
+        void clearPolygon();
+        void assignBorder(double& xMin,double& xMax,double& yMin,double& yMax);
 };
 
 #endif

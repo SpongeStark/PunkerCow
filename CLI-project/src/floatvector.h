@@ -24,7 +24,7 @@ public:
   // member functions
   double norm(); // get the norm of this vector
 
-  double getAngle(FloatVector);
+  double getAngle(FloatVector v);
 };
 
 #endif
