@@ -6,16 +6,15 @@
 
 using namespace std;
 
-void testFloatPoint();
-void testVector();
-
 int main()
 {
   
   int nb_piquets;
-	double sum_x, sum_y, sum_area, area;
   double x, y;
+  double area;
   vector<FloatPoint> polygon;
+  bool isInPolygon;
+  
 
   Flag:
   cout << "give the number of stakes which you want to move:" << endl;
@@ -62,8 +61,19 @@ int main()
     polygon.push_back(*piquet);
   }
 	
+    // area=getArea(polygon);
+    // cout << "the area of polygon is:" << area << endl;
+    
+    // FloatPoint* centroid;
+    // *centroid = getCentroid(area,polygon);
+    // cout << "the centroid(center of gravity is)" << *centroid << endl; 
 
-
+    // isInPolygon = checkPointInPolygon(*centroid,polygon);
+    // if(isInPolygon)
+    // {
+    //   cout << "the cow is in the fence." <<endl; 
+    // }
+    //   cout << "watch out! the cow is out of the fence!" << endl;
 
   return 0;
 }
