@@ -13,7 +13,6 @@ int main()
 {
   
   int nb_piquets;
-	double sum_x, sum_y, sum_area, area;
   double x, y;
   vector<FloatPoint> polygon;
 
@@ -62,7 +61,7 @@ int main()
     polygon.push_back(*piquet);
   }
 	
-
+  
 
 
   return 0;
