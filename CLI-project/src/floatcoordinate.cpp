@@ -24,7 +24,7 @@ bool FloatCoordinate::operator==(const FloatCoordinate& coordinate)
 }
 
 std::ostream& operator<<(std::ostream& output, const FloatCoordinate& coordinate)
-{
+{// So the output format is (a,b)
   output << std::fixed;
   output << "(";
   output << std::setprecision(2) << coordinate.abscissa << " , ";
@@ -33,7 +33,7 @@ std::ostream& operator<<(std::ostream& output, const FloatCoordinate& coordinate
 }
 
 double FloatCoordinate::x()
-{
+{// As the variables are protected, use function to get the value.
   return this->abscissa;
 }
 

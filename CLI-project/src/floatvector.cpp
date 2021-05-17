@@ -31,12 +31,12 @@ double FloatVector::operator*(const FloatVector& vector)
 }
 
 double FloatVector::norm()
-{
+{ // |u|= sqrt(x_u^2 + y_v^2)
   return sqrt(abscissa * abscissa + ordinate * ordinate);
 }
 
 double FloatVector::getAngle(FloatVector v)
-{
+{ // cos thetha = u * v / ( |u| * |v| )
   FloatVector tmp(abscissa,ordinate);
   return acos(tmp * v/(this->norm()*v.norm()));
 }

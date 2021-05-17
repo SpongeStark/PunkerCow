@@ -4,54 +4,60 @@
 FloatPolygon::FloatPolygon(){}
 
 double FloatPolygon::triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
+    // SABC= 1/2 * |AB| * |AC| * sin(A)
     double area = 0;
-    FloatVector VectorAB(pointA,pointB);
-    FloatVector VectorAC(pointA,pointC);
-    double theta=VectorAB.getAngle(VectorAC);
-    return 0.5*VectorAB.norm()*VectorAC.norm()*sin(theta);
+    FloatVector VectorAB(pointA, pointB);
+    FloatVector VectorAC(pointA, pointC);
+    double theta = VectorAB.getAngle(VectorAC);
+    return 0.5 * VectorAB.norm() * VectorAC.norm() * sin(theta);
 }
 double FloatPolygon::getArea()
 {
-    double sumArea=0;
-    FloatPoint point0=polygon[0];
-    FloatPoint point1=polygon[1];
+    //Because the polygon is irregular, it is divided into multiple triangles for calculation
+    //One point is fixed, and then two points of the polygon are taken to form a triangle
+    double sumArea = 0;
+    FloatPoint point0 = polygon[0];
+    FloatPoint point1 = polygon[1];
     for (int i = 2; i < polygon.size(); i++)
     {
-        FloatPoint point2=polygon[i];
-        sumArea+=triangleArea(point0, point1, point2);
-        point1=point2;
+        FloatPoint point2 = polygon[i];
+        sumArea += triangleArea(point0, point1, point2);
+        point1 = point2;
     }
     return sumArea;
 }
 
 FloatPoint FloatPolygon::getCentroid()
 {
-    double Gx=0,Gy=0,areaPolygon=this->getArea();
-    int numPoint=polygon.size();
-    for(int i = 0, j = numPoint-1; i < numPoint ; j=i++)
+    //The calculation of the centroid coordinate is completed according to the given formula
+    double Gx=0, Gy=0, areaPolygon= this->getArea();
+    int numPoint = polygon.size();
+    for(int i = 0, j = numPoint-1; i < numPoint ; j = i++)
     {
-        Gx+=(polygon[j].x()+polygon[i].x())*(polygon[j].x()*polygon[i].y()-polygon[i].x()*polygon[j].y());
-        Gy+=(polygon[j].y()+polygon[i].y())*(polygon[j].x()*polygon[i].y()-polygon[i].x()*polygon[j].y());
+        Gx += (polygon[j].x() + polygon[i].x()) * (polygon[j].x() * polygon[i].y() - polygon[i].x() * polygon[j].y());
+        Gy += (polygon[j].y() + polygon[i].y()) * (polygon[j].x() * polygon[i].y() - polygon[i].x() * polygon[j].y());
     }
-    Gx/=(6*areaPolygon);
-    Gy/=(6*areaPolygon);
-    FloatPoint pointCentroid(Gx,Gy);
+    Gx /= (6 * areaPolygon);
+    Gy /= (6 * areaPolygon);
+    FloatPoint pointCentroid(Gx, Gy);
     return pointCentroid;
 }
 
 bool FloatPolygon::isInPolycon(FloatPoint g)
 {
-    double sum=0,theta;
-    int numPoint=polygon.size();
-    for(int i=0, j=numPoint-1; i < numPoint; j=i++)
+    double sum = 0, theta;
+    int numPoint = polygon.size();
+    // Calculate theta using the given formula
+    for(int i = 0, j = numPoint-1; i < numPoint; j = i++)
     {
-        FloatVector vectorGA(g,polygon[j]);
-        FloatVector vectorGB(g,polygon[i]);
-        double Det=vectorGA.x()*vectorGB.y()-vectorGA.y()*vectorGB.x();
-        theta=(Det<0?-1:1)*acos(vectorGA*vectorGB/(vectorGA.norm()*vectorGB.norm()));
-        sum+=theta;
+        FloatVector vectorGA(g, polygon[j]);
+        FloatVector vectorGB(g, polygon[i]);
+        double Det = vectorGA.x() * vectorGB.y() - vectorGA.y() * vectorGB.x();
+        theta = ( Det < 0 ? -1 : 1 ) * acos(vectorGA * vectorGB / (vectorGA.norm() * vectorGB.norm()));
+        sum += theta;
     }
-    if(abs(sum-0)<=EPSILON) return false;
+    // The role of EPSILON is to reduce floating point errors and residuals
+    if(abs(sum - 0) <= EPSILON) return false;
 	else return true;
 }
 
@@ -62,6 +68,7 @@ bool FloatPolygon::addPoint(FloatPoint point)
     {
         if(point.x()==polygon[i].x()&&point.y()==polygon[i].y())
         {
+            // Cannot add duplicate points
             flag=false;
         }
     }

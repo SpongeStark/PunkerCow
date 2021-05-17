@@ -1,4 +1,9 @@
-//这部分是算法原型，单独能编译运行，仅供差错时参考，与程序无关
+/*
+This part is the prototype of the algorithm,
+which can be compiled and run separately,
+for reference only when checking errors,
+and has nothing to do with the main program
+*/
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
@@ -28,7 +33,7 @@ double Area( point p0 , point p1 , point p2 )
 {
 	double area = 0 ;
 	area =  p0.x * p1.y + p1.x * p2.y + p2.x * p0.y - p1.x * p0.y - p2.x * p1.y - p0.x * p2.y;
-	return area / 2 ;  // 另外在求解的过程中，不需要考虑点的输入顺序是顺时针还是逆时针，相除后就抵消了。
+	return area / 2 ;
 }
 
 bool IfInPol(double x,double y, const vector<point> &pol)
@@ -84,7 +89,6 @@ int main ()
 		g_x=sum_x / sum_area / 3;
 		g_y=sum_y / sum_area / 3;
 		printf ( "%lf %lf\n" , g_x , g_y ) ;
-		//printf ( "%.2lf %.2lf\n" , sum_x / sum_area / 3 , sum_y / sum_area / 3 ) ;
 		if(IfInPol(g_x, g_y, pol)){
 			puts("in pol");
 		}else puts("not in pol");
