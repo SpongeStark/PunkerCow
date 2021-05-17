@@ -2,7 +2,7 @@
 
 This is a tutorial project for "**La vache est dans le pré**"  
 
-## 命名规范，见[Naming notations](命名规范.md)
+## [Naming notations](命名规范.md)
 
 ## Members
 - Kai YANG
