@@ -11,11 +11,8 @@ int main()
   
   int nb_piquets;
   double x, y;
-  double area;
-  vector<FloatPoint> polygon;
-  bool isInPolygon;
   
-
+  //juge if the user input data correctly.
   Flag:
   cout << "give the number of stakes which you want to move:" << endl;
   cin >> nb_piquets;
@@ -27,13 +24,15 @@ int main()
     cin >> nb_piquets;
   }
   
-  if( nb_piquets > 50 || nb_piquets <= 0 )
+  if( nb_piquets > 50 || nb_piquets <= 3 )
   {
       cout << "the number isn't in rage" << endl;
       goto Flag;
   }
 
-  FloatPoint* piquet;  
+  //record coordinate of points
+  FloatPolygon polygon;
+  FloatPoint* piquet;
 
   for( int i=0; i<nb_piquets; i++ )
   {
@@ -58,22 +57,20 @@ int main()
     }
 
     piquet = new FloatPoint(x,y);
-    polygon.push_back(*piquet);
+    polygon.addPoint(*piquet);
   }
 	
-    // area=getArea(polygon);
-    // cout << "the area of polygon is:" << area << endl;
-    
-    // FloatPoint* centroid;
-    // *centroid = getCentroid(area,polygon);
-    // cout << "the centroid(center of gravity is)" << *centroid << endl; 
+   
+    //output the result 
+    cout << "the area of polygon is:" << polygon.getArea() << endl;
 
-    // isInPolygon = checkPointInPolygon(*centroid,polygon);
-    // if(isInPolygon)
-    // {
-    //   cout << "the cow is in the fence." <<endl; 
-    // }
-    //   cout << "watch out! the cow is out of the fence!" << endl;
+    cout << "the centroid(center of gravity is)" << polygon.getCentroid() << endl; 
+
+    if( polygon.isInPolycon( polygon.getCentroid() ) )
+    {
+      cout << "the cow is in the fence." <<endl; 
+    }
+      cout << "watch out! the cow is out of the fence!" << endl;
 
   return 0;
 }
