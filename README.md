@@ -5,9 +5,9 @@ This is a tutorial project for "**La vache est dans le pré**"
 ## [Naming notations](命名规范.md)
 
 ## Members
-- Kai YANG
-- Yutian SHEN
-- Yubing ZHU
+- Kai YANG (@SpongeStark)
+- Yutian SHEN (@A0leKoto)
+- Yubing ZHU (@DaydreAming10Ys)
 
 ## Language
 - C++
