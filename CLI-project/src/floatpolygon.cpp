@@ -3,7 +3,7 @@
 
 FloatPolygon::FloatPolygon(){}
 
-double triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
+double FloatPolygon::triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
     double area = 0;
     FloatVector VectorAB(pointA,pointB);
     FloatVector VectorAC(pointA,pointC);

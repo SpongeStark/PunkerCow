@@ -14,7 +14,7 @@
 class FloatPolygon
 {
     private:
-        vector<FloatPoint> polygon;
+        std::vector<FloatPoint> polygon;
     public:
         FloatPolygon();
 
@@ -22,6 +22,7 @@ class FloatPolygon
         FloatPoint getCentroid();
         bool isInPolycon(FloatPoint g);
 
+        double triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC);
         bool addPoint(FloatPoint point);
         bool removeLastPoint();
         void clearPolygon();
