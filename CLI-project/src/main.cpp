@@ -14,7 +14,7 @@ int main()
   
   //juge if the user input data correctly.
   Flag:
-  cout << "give the number of stakes which you want to move:" << endl;
+  cout << "give the number of stakes which you want to move(3-50):" << endl;
   cin >> nb_piquets;
   while( cin.fail() )
   {
@@ -24,7 +24,7 @@ int main()
     cin >> nb_piquets;
   }
   
-  if( nb_piquets > 50 || nb_piquets <= 3 )
+  if( nb_piquets > 50 || nb_piquets <= 2 )
   {
       cout << "the number isn't in rage" << endl;
       goto Flag;
