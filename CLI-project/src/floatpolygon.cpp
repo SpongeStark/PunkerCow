@@ -3,7 +3,7 @@
 
 FloatPolygon::FloatPolygon(){}
 
-double triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
+double FloatPolygon::triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
     double area = 0;
     FloatVector VectorAB(pointA,pointB);
     FloatVector VectorAC(pointA,pointC);
@@ -57,18 +57,19 @@ bool FloatPolygon::isInPolycon(FloatPoint g)
 
 bool FloatPolygon::addPoint(FloatPoint point)
 {
+    bool flag=true;
     for(int i=0; i<polygon.size(); i++)
     {
         if(point.x()==polygon[i].x()&&point.y()==polygon[i].y())
         {
-            return false;
-        }
-        else
-        {
-            polygon.push_back(point);
-            return true;
+            flag=false;
         }
     }
+    if(flag)
+    {
+        polygon.push_back(point);
+        return true;
+    }else return false;
 }
 
 bool FloatPolygon::removeLastPoint()
@@ -93,12 +94,12 @@ void FloatPolygon::assignBorder(double& xMin,double& xMax,double& yMin,double& y
 {
     if(polygon.empty())
     {
-        xMin=0; xMax=0; yMin=0; yMax=0;
+        xMin=xMax=yMin=yMax=0;
     }
     else
     {
-        double xMinNow=0x7f, xMaxNow=-0x7f, yMinNow=0x7f, yMaxNow=-0x7f;
-        for(int i=0; i<polygon.size(); i++)
+        double xMinNow=polygon[0].x(), xMaxNow=polygon[0].x(), yMinNow=polygon[0].y(), yMaxNow=polygon[0].y();
+        for(int i=1; i<polygon.size(); i++)
         {
             double xNow=polygon[i].x(),yNow=polygon[i].y();
             if(xNow<xMinNow) xMinNow=xNow;
