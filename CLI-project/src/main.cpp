@@ -1,11 +1,8 @@
 #include <iostream>
 #include "floatpoint.h"
 #include "floatvector.h"
-<<<<<<< HEAD
 #include<vector>
-=======
 #include "floatpolygon.h"
->>>>>>> 97426bcedd2ad512658979738e0911590b930016
 
 using namespace std;
 
