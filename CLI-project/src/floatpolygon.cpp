@@ -57,18 +57,19 @@ bool FloatPolygon::isInPolycon(FloatPoint g)
 
 bool FloatPolygon::addPoint(FloatPoint point)
 {
+    bool flag=true;
     for(int i=0; i<polygon.size(); i++)
     {
         if(point.x()==polygon[i].x()&&point.y()==polygon[i].y())
         {
-            return false;
-        }
-        else
-        {
-            polygon.push_back(point);
-            return true;
+            flag=false;
         }
     }
+    if(flag)
+    {
+        polygon.push_back(point);
+        return true;
+    }else return false;
 }
 
 bool FloatPolygon::removeLastPoint()
