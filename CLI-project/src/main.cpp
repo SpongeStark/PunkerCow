@@ -41,9 +41,23 @@ int main()
     cout << "give the position of the stake " << i << ":" << endl;
     cout << "    the abscissa:" << endl;
     cin >> x;
+    while( cin.fail() )
+    {
+      cin.clear();
+      cin.ignore();
+      cout << "error!you can only give the number,please retry:" << endl;
+      cin >> x;
+    }
     cout << "    the ordinate:" << endl;
     cin >> y;
-    
+    while( cin.fail() )
+    {
+      cin.clear();
+      cin.ignore();
+      cout << "error!you can only give the number,please retry:" << endl;
+      cin >> y;
+    }
+
     piquet = new FloatPoint(x,y);
     polygon.push_back(*piquet);
   }
