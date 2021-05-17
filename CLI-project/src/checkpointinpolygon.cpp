@@ -1,3 +1,4 @@
+//no use
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,8 +17,8 @@ bool checkPointInPolygon(FloatPoint G, const vector<FloatPoint> &polygon)
     {
         FloatVector vectorGA(G,polygon[j]);
         FloatVector vectorGB(G,polygon[i]);
-        double cosG=(vectorGA*vectorGB)/(sqrt(pow(vectorGA.x,2)+pow(vectorGA.y,2))*sqrt(pow(vectorGB.x,2)+pow(vectorGB.y,2)));
-        double DetGAGB=vectorGA.x*vectorGB.y-vectorGA.y*vectorGB.x;
+        double cosG=(vectorGA*vectorGB)/(sqrt(pow(vectorGA.x(),2)+pow(vectorGA.y(),2))*sqrt(pow(vectorGB.x(),2)+pow(vectorGB.y(),2)));
+        double DetGAGB=vectorGA.x()*vectorGB.y()-vectorGA.y()*vectorGB.x();
         if(DetGAGB>=0) theta= acos(cosG);
         else theta=-acos(cosG);
         sum+=theta;

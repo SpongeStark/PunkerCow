@@ -10,6 +10,7 @@ double triangleArea(FloatPoint pointA, FloatPoint pointB, FloatPoint pointC){
     FloatVector VectorAB(pointA,pointB);
     FloatVector VectorAC(pointA,pointC);
     area=abs(VectorAB*VectorAC)/2;
+    return area;
 }
 
 double getArea(const vector<FloatPoint> &polygon){
@@ -25,13 +26,13 @@ double getArea(const vector<FloatPoint> &polygon){
     return sumArea;
 }
 
-FloatPoint getCentroid(double areaPolygon,const vector<FloatPoint> &polygon){
+FloatPoint getCentroid(double areaPolygon,vector<FloatPoint> &polygon){
     double Gx=0,Gy=0;
     int numPoint=polygon.size();
     for(int i = 0, j = numPoint-1; i < numPoint ; j=i++)
     {
-        Gx+=(polygon[j].x+polygon[i].x)*(polygon[j].x*polygon[i].y-polygon[i].x*polygon[j].y);
-        Gy+=(polygon[j].y+polygon[i].y)*(polygon[j].x*polygon[i].y-polygon[i].x*polygon[j].y);
+        Gx+=(polygon[j].x()+polygon[i].x())*(polygon[j].x()*polygon[i].y()-polygon[i].x()*polygon[j].y());
+        Gy+=(polygon[j].y()+polygon[i].y())*(polygon[j].x()*polygon[i].y()-polygon[i].x()*polygon[j].y());
     }
     Gx/=(6*areaPolygon);
     Gy/=(6*areaPolygon);

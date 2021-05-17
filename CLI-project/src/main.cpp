@@ -1,7 +1,11 @@
 #include <iostream>
 #include "floatpoint.h"
 #include "floatvector.h"
+<<<<<<< HEAD
 #include<vector>
+=======
+#include "floatpolygon.h"
+>>>>>>> 97426bcedd2ad512658979738e0911590b930016
 
 using namespace std;
 
@@ -55,6 +59,7 @@ int main()
 
   testFloatPoint();
   testVector();
+  testPolygon();
   return 0;
 }
 
@@ -95,4 +100,9 @@ void testVector()
   cout << "1-2 : " << vector1 - vector2 << endl;
   cout << "Test *" << endl;
   cout << "1*2 : " << vector1 * vector2 << endl;
+}
+
+void testPolygon()
+{
+
 }

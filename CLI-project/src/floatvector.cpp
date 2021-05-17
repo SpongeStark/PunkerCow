@@ -34,3 +34,9 @@ double FloatVector::norm()
 {
   return sqrt(abscissa * abscissa + ordinate * ordinate);
 }
+
+double FloatVector::getAngle(FloatVector v)
+{
+  FloatVector tmp(abscissa,ordinate);
+  return acos(tmp * v/(this->norm()*v.norm()));
+}
