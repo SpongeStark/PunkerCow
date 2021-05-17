@@ -6,4 +6,5 @@ CLI-project/src/a
 CLI-project/src/run
 
 # Files in GUI project
-GUI-project/src/*.user
+GUI-project/Gravity/*.user
+GUI-project/Gravity/build-*/
